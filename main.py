@@ -3,11 +3,10 @@ from itertools import permutations
 def generateWord(letters):
     return permutations(letters)
  
-words = generateWord(['f', 'i'])
-
-f = open('odm.txt', encoding="utf8")
+words = generateWord(['l', 'o', 'a', 'd', 'r'])
 
 def isWordCorrect(word):
+    f = open('odm.txt', encoding="utf8")
     while True:
         line = f.readline()
         if line != '':
@@ -19,4 +18,9 @@ def isWordCorrect(word):
         else:
             return False
         
-print(isWordCorrect('zez'))
+for word in words:
+    str = ' '
+    str = str.join(word)
+    str = str.replace(' ','')
+    if isWordCorrect(str):
+        print(str)
